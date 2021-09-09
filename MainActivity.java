@@ -23,4 +23,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent (this, CycleOne.class);
         startActivity(intent);
     }
+
+    public void set_max_weight (View view){
+        Intent intent = new Intent (this, SetMaxWeightActivity.class);
+        startActivity(intent);
+    }
 }
