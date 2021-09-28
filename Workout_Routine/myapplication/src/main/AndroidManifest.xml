@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Workout_app">
         <activity
+            android:name=".popup"
+            android:exported="true" />
+        <activity
             android:name=".CycleTwoActivity"
             android:exported="true" />
         <activity
