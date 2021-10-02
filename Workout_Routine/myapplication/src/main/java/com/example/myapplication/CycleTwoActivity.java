@@ -850,7 +850,7 @@ public class CycleTwoActivity extends AppCompatActivity {
 
     // Brings pop up page for each exorcise being overloaded
     public void popup_FS(View view) {
-        Intent intent = new Intent(CycleTwoActivity.this, popup.class);
+        Intent intent = new Intent(CycleTwoActivity.this, PopupC2.class);
         String CPU_bundle = "FS";
         Bundle bundle = new Bundle();
         bundle.putString("bundle", "Front Squat");
@@ -859,7 +859,7 @@ public class CycleTwoActivity extends AppCompatActivity {
     }
 
     public void popup_DL(View view) {
-        Intent intent = new Intent(CycleTwoActivity.this, popup.class);
+        Intent intent = new Intent(CycleTwoActivity.this, PopupC2.class);
         String CPU_bundle = "Dead Lift";
         Bundle bundle = new Bundle();
         bundle.putString("bundle", "Dead Lift");
@@ -868,7 +868,7 @@ public class CycleTwoActivity extends AppCompatActivity {
     }
 
     public void popup_CPU(View view) {
-        Intent intent = new Intent(CycleTwoActivity.this,popup.class);
+        Intent intent = new Intent(CycleTwoActivity.this,PopupC2.class);
         String CPU_bundle = "CPU";
         Bundle bundle = new Bundle();
         bundle.putString("bundle", "Calisthenic Push Up");
@@ -877,7 +877,7 @@ public class CycleTwoActivity extends AppCompatActivity {
     }
 
     public void popup_OAPU(View view) {
-        Intent intent = new Intent(CycleTwoActivity.this, popup.class);
+        Intent intent = new Intent(CycleTwoActivity.this, PopupC2.class);
         String CPU_bundle = "OAPU";
         Bundle bundle = new Bundle();
         bundle.putString("bundle", "One Arm Inverted Push Up");
@@ -886,7 +886,7 @@ public class CycleTwoActivity extends AppCompatActivity {
     }
 
     public void popup_AP(View view) {
-        Intent intent = new Intent(CycleTwoActivity.this, popup.class);
+        Intent intent = new Intent(CycleTwoActivity.this, PopupC2.class);
         String CPU_bundle = "AP";
         Bundle bundle = new Bundle();
         bundle.putString("bundle", "Axel Press");
@@ -895,7 +895,7 @@ public class CycleTwoActivity extends AppCompatActivity {
     }
 
     public void popup_PS(View view) {
-        Intent intent = new Intent(CycleTwoActivity.this, popup.class);
+        Intent intent = new Intent(CycleTwoActivity.this, PopupC2.class);
         String CPU_bundle = "Pistol Squat";
         Bundle bundle = new Bundle();
         bundle.putString("bundle", "Pistol Squat");
@@ -904,7 +904,7 @@ public class CycleTwoActivity extends AppCompatActivity {
     }
 
     public void popup_OAIR(View view) {
-        Intent intent = new Intent(CycleTwoActivity.this, popup.class);
+        Intent intent = new Intent(CycleTwoActivity.this, PopupC2.class);
         String CPU_bundle = "OAIR";
         Bundle bundle = new Bundle();
         bundle.putString("bundle", "One Arm Inverted Row");
@@ -913,7 +913,7 @@ public class CycleTwoActivity extends AppCompatActivity {
     }
 
     public void popup_PU(View view) {
-        Intent intent = new Intent(CycleTwoActivity.this, popup.class);
+        Intent intent = new Intent(CycleTwoActivity.this, PopupC2.class);
         String CPU_bundle = "PU";
         Bundle bundle = new Bundle();
         bundle.putString("bundle", "Pull Up");
@@ -922,7 +922,7 @@ public class CycleTwoActivity extends AppCompatActivity {
     }
 
     public void popup_SU(View view) {
-        Intent intent = new Intent(CycleTwoActivity.this, popup.class);
+        Intent intent = new Intent(CycleTwoActivity.this, PopupC2.class);
         String CPU_bundle = "SU";
         Bundle bundle = new Bundle();
         bundle.putString("bundle", "Sit Up");
@@ -931,7 +931,7 @@ public class CycleTwoActivity extends AppCompatActivity {
     }
 
     public void popup_CR(View view) {
-        Intent intent = new Intent(CycleTwoActivity.this, popup.class);
+        Intent intent = new Intent(CycleTwoActivity.this, PopupC2.class);
         String CPU_bundle = "CR";
         Bundle bundle = new Bundle();
         bundle.putString("bundle", "Calisthenic Row");
@@ -940,7 +940,7 @@ public class CycleTwoActivity extends AppCompatActivity {
     }
 
     public void popup_MU(View view) {
-        Intent intent = new Intent(CycleTwoActivity.this, popup.class);
+        Intent intent = new Intent(CycleTwoActivity.this, PopupC2.class);
         String CPU_bundle = "MU";
         Bundle bundle = new Bundle();
         bundle.putString("bundle", "Muscle Up");
@@ -948,7 +948,8 @@ public class CycleTwoActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
-
-
+    public void home(View view) {
+        Intent intent = new Intent(CycleTwoActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
 }

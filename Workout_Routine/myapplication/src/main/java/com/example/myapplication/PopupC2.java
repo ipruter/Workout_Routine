@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-public class popup extends AppCompatActivity {
+public class PopupC2 extends AppCompatActivity {
 
     String str_max;
     double max;
@@ -21,7 +21,7 @@ public class popup extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_popup);
+        setContentView(R.layout.activity_popup_c2);
         TextView tv = (TextView)findViewById(R.id.text);
 
         Bundle bundle = getIntent().getExtras(); // Get the bundle
@@ -44,7 +44,7 @@ public class popup extends AppCompatActivity {
                     editor.putString("squat_max", str_max);
                     editor.commit(); // Saves overloaded 1RM
                     // Returns to previous page
-                    Intent intent = new Intent(popup.this, CycleOneActivity.class);
+                    Intent intent = new Intent(PopupC2.this, CycleTwoActivity.class);
                     startActivity(intent);
                 }
             });
@@ -65,7 +65,7 @@ public class popup extends AppCompatActivity {
                     editor.putString("DL_max", str_max);
                     editor.commit(); // Saves overloaded 1RM
                     // Returns to previous page
-                    Intent intent = new Intent(popup.this, CycleOneActivity.class);
+                    Intent intent = new Intent(PopupC2.this, CycleTwoActivity.class);
                     startActivity(intent);
                 }
             });
@@ -86,11 +86,11 @@ public class popup extends AppCompatActivity {
                     editor.putString("CPushU_max", str_max);
                     editor.commit(); // Saves overloaded 1RM
                     // Returns to previous page
-                    Intent intent = new Intent(popup.this, CycleOneActivity.class);
+                    Intent intent = new Intent(PopupC2.this, CycleTwoActivity.class);
                     startActivity(intent);
                 }
             });
-       }
+        }
         else if (exorcise.equals("One Arm Push Up")) {
             OL_OAPU = (Button) findViewById(R.id.yes); // Assigns variable for yes button
             // Activates method on yes button click
@@ -107,7 +107,7 @@ public class popup extends AppCompatActivity {
                     editor.putString("OAP_max", str_max);
                     editor.commit(); // Saves overloaded 1RM
                     // Returns to previous page
-                    Intent intent = new Intent(popup.this, CycleOneActivity.class);
+                    Intent intent = new Intent(PopupC2.this, CycleTwoActivity.class);
                     startActivity(intent);
                 }
             });
@@ -128,7 +128,7 @@ public class popup extends AppCompatActivity {
                     editor.putString("AP_max", str_max);
                     editor.commit(); // Saves overloaded 1RM
                     // Returns to previous page
-                    Intent intent = new Intent(popup.this, CycleOneActivity.class);
+                    Intent intent = new Intent(PopupC2.this, CycleTwoActivity.class);
                     startActivity(intent);
                 }
             });
@@ -149,7 +149,7 @@ public class popup extends AppCompatActivity {
                     editor.putString("PS_max", str_max);
                     editor.commit(); // Saves overloaded 1RM
                     // Returns to previous page
-                    Intent intent = new Intent(popup.this, CycleOneActivity.class);
+                    Intent intent = new Intent(PopupC2.this, CycleTwoActivity.class);
                     startActivity(intent);
                 }
             });
@@ -170,7 +170,7 @@ public class popup extends AppCompatActivity {
                     editor.putString("OAIR_max", str_max);
                     editor.commit(); // Saves overloaded 1RM
                     // Returns to previous page
-                    Intent intent = new Intent(popup.this, CycleOneActivity.class);
+                    Intent intent = new Intent(PopupC2.this, CycleTwoActivity.class);
                     startActivity(intent);
                 }
             });
@@ -191,7 +191,7 @@ public class popup extends AppCompatActivity {
                     editor.putString("PU_max", str_max);
                     editor.commit(); // Saves overloaded 1RM
                     // Returns to previous page
-                    Intent intent = new Intent(popup.this, CycleOneActivity.class);
+                    Intent intent = new Intent(PopupC2.this, CycleTwoActivity.class);
                     startActivity(intent);
                 }
             });
@@ -212,7 +212,7 @@ public class popup extends AppCompatActivity {
                     editor.putString("SU_max", str_max);
                     editor.commit(); // Saves overloaded 1RM
                     // Returns to previous page
-                    Intent intent = new Intent(popup.this, CycleOneActivity.class);
+                    Intent intent = new Intent(PopupC2.this, CycleTwoActivity.class);
                     startActivity(intent);
                 }
             });
@@ -233,7 +233,7 @@ public class popup extends AppCompatActivity {
                     editor.putString("CPullU_max", str_max);
                     editor.commit(); // Saves overloaded 1RM
                     // Returns to previous page
-                    Intent intent = new Intent(popup.this, CycleOneActivity.class);
+                    Intent intent = new Intent(PopupC2.this, CycleTwoActivity.class);
                     startActivity(intent);
                 }
             });
@@ -254,7 +254,7 @@ public class popup extends AppCompatActivity {
                     editor.putString("MU_max", str_max);
                     editor.commit(); // Saves overloaded 1RM
                     // Returns to previous page
-                    Intent intent = new Intent(popup.this, CycleOneActivity.class);
+                    Intent intent = new Intent(PopupC2.this, CycleTwoActivity.class);
                     startActivity(intent);
                 }
             });
@@ -270,7 +270,7 @@ public class popup extends AppCompatActivity {
 
     // Returns to previous page when no button is clicked
     public void no(View view) {
-        Intent intent = new Intent(popup.this, CycleOneActivity.class);
+        Intent intent = new Intent(PopupC2.this, CycleTwoActivity.class);
         startActivity(intent);
     }
 }

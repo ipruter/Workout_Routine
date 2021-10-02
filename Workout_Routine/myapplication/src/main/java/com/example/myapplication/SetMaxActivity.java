@@ -15,67 +15,22 @@ import java.text.DecimalFormat;
 
 public class SetMaxActivity extends AppCompatActivity {
 
-    String front_squat;
-    String dead_lift;
-    String cal_push_up;
-    String sit_up;
-    String OA_push_up;
-    String axel_press;
-    String cal_pull_up;
-    String OAI_row;
-    String pull_up;
-    String muscle_up;
-    String pistol_squat;
+    String front_squat, dead_lift, cal_push_up, sit_up, OA_push_up, axel_press, cal_pull_up, OAI_row, pull_up, muscle_up, pistol_squat;
+    TextView tv_FS, tv_DL, tv_CPU, tv_SU, tv_OAPU, tv_AP, tv_CR, tv_OAIR, tv_PU, tv_MU, tv_PS;
+    EditText FS_max_form, deadlift_max_form, cal_push_ups_form, crunch_max_form, cal_rows_form, OAIR_max_form, OAP_form, PU_max_form, AP_max_form, muscle_ups_form, pistol_squat_form;
+    Button save_but, save_but2, save_but3, save_but4, save_but5, save_but6, save_but7, save_but8, save_but9, save_but10, save_but11, load_but;
 
-    String str;
-    TextView tv_FS;
-    TextView tv_DL;
-    TextView tv_CPU;
-    TextView tv_SU;
-    TextView tv_OAPU;
-    TextView tv_AP;
-    TextView tv_CR;
-    TextView tv_OAIR;
-    TextView tv_PU;
-    TextView tv_MU;
-    TextView tv_PS;
-
-    EditText FS_max_form;
-    EditText deadlift_max_form;
-    EditText cal_push_ups_form;
-    EditText crunch_max_form;
-    EditText cal_rows_form;
-    EditText OAIR_max_form;
-    EditText OAP_form;
-    EditText PU_max_form;
-    EditText AP_max_form;
-    EditText muscle_ups_form;
-    EditText pistol_squat_form;
-
-    Button save_but;
-    Button save_but2;
-    Button save_but3;
-    Button save_but4;
-    Button save_but5;
-    Button save_but6;
-    Button save_but7;
-    Button save_but8;
-    Button save_but9;
-    Button save_but10;
-    Button save_but11;
-
-    Button load_but;
-
+    // Runs code when corresponding XML file loads
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_max);
-
+        // Creates objects for saving data
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor editor = pref.edit();
-
+        // Formats floats to one decimal place
         DecimalFormat df = new DecimalFormat("###.#");
-
+        // Assigns text views, buttons, and edit texts to variables
         tv_FS = (TextView)findViewById(R.id.FS_max);
         tv_DL = (TextView)findViewById(R.id.deadlift_max);
         tv_CPU = (TextView)findViewById(R.id.cal_push_ups_max);
@@ -100,7 +55,6 @@ public class SetMaxActivity extends AppCompatActivity {
         muscle_ups_form = (EditText)findViewById(R.id.muscle_ups_form);
         pistol_squat_form = (EditText)findViewById(R.id.pistol_squat_form);
 
-
         save_but = (Button)findViewById(R.id.save);
         save_but2 = (Button)findViewById(R.id.save2);
         save_but3 = (Button)findViewById(R.id.save3);
@@ -113,6 +67,7 @@ public class SetMaxActivity extends AppCompatActivity {
         save_but10 = (Button)findViewById(R.id.save10);
         save_but11 = (Button)findViewById(R.id.save11);
 
+        // Retrieves saved workout data
         front_squat = pref.getString("squat_max", "0");
         dead_lift = pref.getString("DL_max", "0");
         cal_push_up =pref.getString("CPushU_max", "0");
@@ -125,6 +80,7 @@ public class SetMaxActivity extends AppCompatActivity {
         muscle_up = pref.getString("MU_max", "0");
         pistol_squat = pref.getString("PS_max", "0");
 
+        // Sets data to display in text views
         tv_FS.setText(front_squat);
         tv_DL.setText(dead_lift);
         tv_CPU.setText(cal_push_up);
@@ -138,175 +94,170 @@ public class SetMaxActivity extends AppCompatActivity {
         tv_PS.setText(pistol_squat);
 
         load_but = (Button)findViewById(R.id.calculate);
+
+        // Runs function when save button is pressed
         save_but.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-
+                // Creates objects for saving data
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                 SharedPreferences.Editor editor = pref.edit();
-
                 front_squat = String.valueOf(FS_max_form.getText());
                 editor.putString("squat_max", front_squat);
-                editor.commit();
+                editor.commit(); // Save data
                 front_squat = pref.getString("squat_max", "0");
-                tv_FS.setText(front_squat);
-
+                tv_FS.setText(front_squat); // Displays data in text view
             }
         });
 
+        // Runs function when save button is pressed
         save_but2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-
+                // Creates objects for saving data
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                 SharedPreferences.Editor editor = pref.edit();
-
                 dead_lift = String.valueOf(deadlift_max_form.getText());
                 editor.putString("DL_max", dead_lift);
-                editor.commit();
+                editor.commit(); // Save data
                 dead_lift = pref.getString("DL_max", "0");
-                tv_DL.setText(dead_lift);
+                tv_DL.setText(dead_lift); // Displays data in text view
             }
         });
 
+        // Runs function when save button is pressed
         save_but3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                // Creates objects for saving data
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                 SharedPreferences.Editor editor = pref.edit();
-
                 OA_push_up = String.valueOf(OAP_form.getText());
                 editor.putString("OAP_max", OA_push_up);
-                editor.commit();
+                editor.commit(); // Save data
                 OA_push_up = pref.getString("OAP_max", "0");
-
-                tv_OAPU.setText(OA_push_up);
+                tv_OAPU.setText(OA_push_up); // Displays data in text view
             }
         });
 
+        // Runs function when save button is pressed
         save_but4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                // Creates objects for saving data
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                 SharedPreferences.Editor editor = pref.edit();
-
                 OAI_row = String.valueOf(OAIR_max_form.getText());
                 editor.putString("OAIR_max", OAI_row);
-                editor.commit();
+                editor.commit(); // Save data
                 OAI_row = pref.getString("OAIR_max", "0");
-
-                tv_OAIR.setText(OAI_row);
-
+                tv_OAIR.setText(OAI_row); // Displays data in text view
             }
         });
 
+        // Runs function when save button is pressed
         save_but5.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                // Creates objects for saving data
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                 SharedPreferences.Editor editor = pref.edit();
-
                 axel_press = String.valueOf(AP_max_form.getText());
                 editor.putString("AP_max", axel_press);
-                editor.commit();
+                editor.commit(); // Save data
                 axel_press = pref.getString("AP_max", "0");
-
-                tv_AP.setText(axel_press);
+                tv_AP.setText(axel_press); // Displays data in text view
             }
         });
 
+        // Runs function when save button is pressed
         save_but6.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                // Creates objects for saving data
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                 SharedPreferences.Editor editor = pref.edit();
-
                 pull_up = String.valueOf(PU_max_form.getText());
                 editor.putString("PU_max", pull_up);
-                editor.commit();
+                editor.commit(); // Save data
                 pull_up = pref.getString("PU_max", "0");
-
-                tv_PU.setText(pull_up);
-
+                tv_PU.setText(pull_up); // Displays data in text view
             }
         });
 
+        // Runs function when save button is pressed
         save_but7.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                // Creates objects for saving data
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                 SharedPreferences.Editor editor = pref.edit();
-
                 sit_up = String.valueOf(crunch_max_form.getText());
                 editor.putString("SU_max", sit_up);
-                editor.commit();
+                editor.commit(); // Save data
                 sit_up = pref.getString("SU_max", "0");
-                tv_SU.setText(sit_up);
-
+                tv_SU.setText(sit_up); // Displays data in text view
             }
         });
 
+        // Runs function when save button is pressed
         save_but8.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                // Creates objects for saving data
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                 SharedPreferences.Editor editor = pref.edit();
-
                 cal_push_up = String.valueOf(cal_push_ups_form.getText());
                 editor.putString("CPushU_max", cal_push_up);
-                editor.commit();
+                editor.commit(); // Save data
                 cal_push_up = pref.getString("CPushU_max", "0");
-                tv_CPU.setText(cal_push_up);
+                tv_CPU.setText(cal_push_up); // Displays data in text view
             }
         });
 
+        // Runs function when save button is pressed
         save_but9.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                // Creates objects for saving data
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                 SharedPreferences.Editor editor = pref.edit();
-
                 cal_pull_up = String.valueOf(cal_rows_form.getText());
                 editor.putString("CPullU_max", cal_pull_up);
-                editor.commit();
+                editor.commit(); // Save data
                 cal_pull_up = pref.getString("CPullU_max", "0");
-
-                tv_CR.setText(cal_pull_up);
-
+                tv_CR.setText(cal_pull_up); // Displays data in text view
             }
         });
 
+        // Runs function when save button is pressed
         save_but10.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                // Creates objects for saving data
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                 SharedPreferences.Editor editor = pref.edit();
-
                 muscle_up = String.valueOf(muscle_ups_form.getText());
                 editor.putString("MU_max", muscle_up);
-                editor.commit();
+                editor.commit(); // Save data
                 muscle_up = pref.getString("MU_max", "0");
-
-                tv_MU.setText(muscle_up);
+                tv_MU.setText(muscle_up); // Displays data in text view
             }
         });
 
+        // Runs function when save button is pressed
         save_but11.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                // Creates objects for saving data
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                 SharedPreferences.Editor editor = pref.edit();
-
                 pistol_squat = String.valueOf(pistol_squat_form.getText());
                 editor.putString("PS_max", pistol_squat);
-                editor.commit();
+                editor.commit(); // Save data
                 pistol_squat = pref.getString("PS_max", "0");
-
-                tv_PS.setText(pistol_squat);
+                tv_PS.setText(pistol_squat); // Displays data in text view
             }
         });
-
-
-
     }
 }
