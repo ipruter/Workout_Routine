@@ -10,6 +10,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Workout_app">
         <activity
+            android:name=".C3W2Activity"
+            android:exported="true"
+            android:label="@string/title_activity_c3_w2"
+            android:theme="@style/Theme.Workout_app.NoActionBar" />
+        <activity
+            android:name=".C3W1Activity"
+            android:exported="true" />
+        <activity
+            android:name=".CycleThree"
+            android:exported="true" />
+        <activity
+            android:name=".PopupC2"
+            android:exported="true" />
+        <activity
             android:name=".popup"
             android:exported="true" />
         <activity

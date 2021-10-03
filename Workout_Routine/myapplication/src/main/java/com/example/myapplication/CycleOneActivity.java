@@ -992,7 +992,8 @@ public class CycleOneActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
-
-
+    public void home(View view) {
+        Intent intent = new Intent(CycleOneActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
 }

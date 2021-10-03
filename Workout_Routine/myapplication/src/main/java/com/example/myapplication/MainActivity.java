@@ -13,9 +13,7 @@ import android.content.Intent;
 
 import java.text.DecimalFormat;
 
-
 public class MainActivity extends AppCompatActivity {
-
     String str_weight;
     String str_reps;
     String str_max;
@@ -23,11 +21,12 @@ public class MainActivity extends AppCompatActivity {
     double weight;
     double reps;
 
+    // Runs lines and methods when corresponding XML page loads
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        // Assigns variables for buttons and text views
         Button save_but = (Button)findViewById(R.id.body_weight_button);
         Button calculate = (Button)findViewById(R.id.calculate);
         TextView tv1 = (TextView)findViewById(R.id.display_body_weight);
@@ -35,72 +34,76 @@ public class MainActivity extends AppCompatActivity {
         EditText input_body_weight = (EditText)findViewById(R.id.body_weight_form);
         EditText input_weight = (EditText)findViewById(R.id.weight);
         EditText input_reps = (EditText)findViewById(R.id.reps);
-
+        // Creates objects for saving data
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor editor = pref.edit();
-
         String body_weight;
-        body_weight = pref.getString("body_weight", "0");
-        tv1.setText(body_weight);
+        body_weight = pref.getString("body_weight", "0"); // Retrieves body weight from storage
+        tv1.setText(body_weight); // Displays body weight in textview
 
-
+        // Runs method when save button is clicked
         save_but.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 String body_weight = "0";
-
-                body_weight = String.valueOf(input_body_weight.getText());
+                body_weight = String.valueOf(input_body_weight.getText()); // Retrieves user input from edit text box
+                //Creates objects for saving data
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                 SharedPreferences.Editor editor = pref.edit();
-
                 editor.putString("body_weight", body_weight);
-                editor.commit();
-                body_weight = pref.getString("body_weight", "0");
-                tv1.setText(body_weight);
-
+                editor.commit(); // Saves body weight
+                body_weight = pref.getString("body_weight", "0"); // Gets body weight
+                tv1.setText(body_weight); // Displays body weight
             }
         });
 
+        // Runs method when calculate button is clicked
         calculate.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 String body_weight = "0";
-
+                // Gets input data from edit text forms
                 str_weight = String.valueOf(input_weight.getText());
                 str_reps = String.valueOf(input_reps.getText());
                 weight = Double.parseDouble(str_weight);
                 reps = Double.parseDouble(str_reps);
-                max = get_max (weight, reps);
+                max = get_max(weight, reps); // Calculates the users 1RM based on weight and reps
+                // Prevents negative 1RM
                 if (weight == 0) {
                     tv2.setText(String.valueOf("0"));
                 }
                 else {
                     str_max = String.valueOf(Math.round(max));
-                    tv2.setText(String.valueOf(str_max));
+                    tv2.setText(String.valueOf(str_max)); // Displays 1RM
                 }
             }
         });
     }
 
+    // Opens first cycle
     public void first_cycle (View view){
         Intent intent = new Intent (this, CycleOneActivity.class);
         startActivity(intent);
     }
 
+    // Opens second cycle
     public void second_cycle (View view){
         Intent intent = new Intent (this, CycleTwoActivity.class);
         startActivity(intent);
     }
 
+    // Opens third cycle
     public void set_max_weight (View view){
         Intent intent = new Intent (this, SetMaxActivity.class);
         startActivity(intent);
     }
 
+    // Calculates the 1RM based on wieght and reps
     public double get_max (double weight, double reps){
         double max = 0;
         double intensity = 0;
 
+        // Finds intensity based on reps
         if (reps == 2){
             intensity = 0.97;
         }
@@ -191,9 +194,6 @@ public class MainActivity extends AppCompatActivity {
         else { intensity = 0; }
 
         max = weight / intensity;
-
         return max;
     }
-
-
 }
